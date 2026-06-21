@@ -514,9 +514,6 @@ footer{
     cursor:pointer;
     font-weight:600;
 }
-
-
-
 </style>
 </head>
 <body>
@@ -524,6 +521,9 @@ footer{
 function orderFood(item){
     localStorage.setItem("orderedItem", item);
     window.location.href = "order.html";
+}
+function showOffer(code) {
+    alert("Use code: " + code + " at checkout!");
 }
 </script>
     <script>
@@ -762,9 +762,8 @@ warm hospitality, and unforgettable moments.
 <button class="order-btn" onclick="orderFood('Veg Grill Platter')">Order Now</button>
 </div>
 </div>
-
+</div>
 </section>
-
 <section id="book" class="cta">
 <div class="container">
 <h2>Ready for an Unforgettable BBQ Experience?</h2>
