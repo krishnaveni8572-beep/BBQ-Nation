@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBQ Nation - Premium BBQ Experience</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f8f8;
+    color:#333;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+nav{
+    background:#111;
+    padding:18px 0;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#ffb703;
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ffb703;
+}
+
+.login-btn{
+    background:#ffb703;
+    color:#111;
+    padding:10px 20px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.hero{
+    height:90vh;
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url('https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    width:100%;
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    max-width:700px;
+    margin:auto;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 30px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.primary{
+    background:#ffb703;
+    color:#111;
+}
+
+.secondary{
+    border:2px solid white;
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+section{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:50px;
+}
+
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.offer-card{
+    text-align:center;
+    border-top:5px solid #ffb703;
+}
+
+.offer-code{
+    margin-top:15px;
+    display:inline-block;
+    background:#111;
+    color:#ffb703;
+    padding:8px 16px;
+    border-radius:30px;
+}
+
+.location{
+    text-align:center;
+}
+
+.rating{
+    color:#ffb703;
+    font-weight:700;
+}
+
+
+
+.order-btn{
+    background:#ffb703;
+    border:none;
+    padding:10px 20px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.cta{
+    background:#111;
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+footer{
+    background:#000;
+    color:#ccc;
+    padding:50px 0;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.footer-grid h3{
+    color:white;
+    margin-bottom:15px;
+}
+
+.footer-grid ul{
+    list-style:none;
+}
+
+.footer-grid a{
+    text-decoration:none;
+    color:#ccc;
+}
+
+.copyright{
+    text-align:center;
+    margin-top:40px;
+    border-top:1px solid #333;
+    padding-top:20px;
+}
+
+@media(max-width:768px){
+.hero h1{
+    font-size:40px;
+}
+.hero p{
+    font-size:16px;
+}
+.nav-links{
+    display:none;
+}
+}
+/* Booking Form Section */
+#booking-form{
+    padding:80px 20px;
+    background:linear-gradient(135deg,#111,#222);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.booking-container{
+    width:100%;
+    max-width:600px;
+    background:#1b1a1a;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    animation:fadeIn 0.5s ease;
+}
+
+.booking-container h2{
+    text-align:center;
+    color:#f5f5f5;
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.booking-container p{
+    text-align:center;
+    color:#ece8e8;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#f8efef;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px;
+    border:2px solid #050505;
+    border-radius:12px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.input-group input:focus{
+    border-color:#ffb703;
+    outline:none;
+    box-shadow:0 0 10px rgba(255,183,3,0.4);
+}
+
+.button-group{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:25px;
+}
+
+.confirm-btn{
+    background:#ffb703;
+    color:#111;
+    border:none;
+    padding:14px 30px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.confirm-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(255,183,3,0.4);
+}
+
+.cancel-btn{
+    background:#dc3545;
+    color:rgb(13, 13, 13);
+    border:none;
+    padding:14px 30px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.cancel-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(220,53,69,0.4);
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media(max-width:768px){
+
+    .booking-container{
+        padding:25px;
+    }
+
+    .booking-container h2{
+        font-size:28px;
+    }
+
+    .button-group{
+        flex-direction:column;
+    }
+
+    .confirm-btn,
+    .cancel-btn{
+        width:100%;
+    }
+}
+.offer-card{
+    cursor:pointer;
+}
+
+.offer-card:hover{
+    transform:translateY(-8px);
+}
+.notification{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#56e678;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    display:none;
+    z-index:9999;
+    font-weight:600;
+}
+.offers-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+/* Offers Section */
+#offers{
+    padding:80px 0;
+    background:#f8f8f8;
+}
+
+#offers .container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:50px;
+    color:#111;
+    font-weight:700;
+}
+/* Offers Section */
+#offers{
+    padding:80px 20px;
+    background:#f8f8f8;
+}
+
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+.offers-grid{
+    display:flex;
+    gap:25px;
+    overflow-x:auto;
+    padding:20px 0;
+}
+
+.offer-card{
+    min-width:320px;
+    flex-shrink:0;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    border-top:5px solid #ffb703;
+    transition:0.3s;
+}
+
+.offer-card:hover{
+    transform:translateY(-8px);
+}
+.menu-grid{
+    display:flex;
+    gap:25px;
+    overflow-x:auto;
+    padding:20px 0;
+    scroll-behavior:smooth;
+}
+
+.menu-grid::-webkit-scrollbar{
+    height:8px;
+}
+
+.menu-grid::-webkit-scrollbar-thumb{
+    background:#ffb703;
+    border-radius:10px;
+}
+
+.menu-item{
+    min-width:280px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    flex-shrink:0;
+    transition:0.3s;
+}
+
+.menu-item:hover{
+    transform:translateY(-8px);
+}
+
+.menu-item img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.menu-content{
+    padding:20px;
+}
+
+.price{
+    color:#d62828;
+    font-size:22px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.order-btn{
+    width:100%;
+    background:#ffb703;
+    border:none;
+    padding:12px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+
+
+</style>
+</head>
+<body>
+    <script>
+function orderFood(item){
+    localStorage.setItem("orderedItem", item);
+    window.location.href = "order.html";
+}
+</script>
+    <script>
+function showBookingForm() {
+    document.getElementById("booking-form").style.display = "block";
+}
+
+function cancelBooking() {
+    document.getElementById("booking-form").style.display = "none";
+}
+
+function submitBooking(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+    const guests = document.getElementById("guests").value;
+
+    alert(
+        `Booking Confirmed!\n\nName: ${name}\nDate: ${date}\nTime: ${time}\nGuests: ${guests}`
+    );
+
+    document.getElementById("bookingForm").reset();
+    document.getElementById("booking-form").style.display = "none";
+}
+</script>
+
+<nav>
+<div class="container nav-content">
+<div class="logo">BBQ Nation</div>
+
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#locations">Locations</a>
+<a href="#offers">Offers</a>
+<a href="#book">Book Table</a>
+</div>
+<a href="login.html" class="login-btn">Login</a>
+<p style="text-align:center;margin-top:15px;">
+
+<a href="signup.html">Sign Up</a>
+</p>
+</div>
+</nav>
+
+<section id="home" class="hero">
+<div class="container hero-content">
+<h1>Where Fire Meets Flavor</h1>
+<p>
+Experience premium barbecue dining with expertly grilled delicacies,
+warm hospitality, and unforgettable moments.
+</p>
+
+<div class="hero-buttons">
+<a href="#book" class="btn primary">Reserve Your Table</a>
+<a href="#menu" class="btn secondary">Explore Menu</a>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">Why Choose BBQ Nation</h2>
+
+<div class="grid-3">
+<div class="card">
+<h3>Premium Quality</h3>
+<p>Finest ingredients and authentic grilling techniques.</p>
+</div>
+
+<div class="card">
+<h3>Perfect for Groups</h3>
+<p>Ideal venue for family gatherings and celebrations.</p>
+</div>
+
+<div class="card">
+<h3>Easy Reservations</h3>
+<p>Book online instantly and enjoy exclusive offers.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="offers">
+<div class="container">
+<h2 class="section-title">Special Offers</h2>
+
+<div class="offers-grid">
+
+    <!-- Offer Card 1 -->
+    <div class="card offer-card" onclick="showOffer('FAMILY30')">
+        <h3>30% OFF</h3>
+        <p>On Family Pack orders above ₹2000</p>
+        <span class="offer-code">FAMILY30</span>
+    </div>
+
+    <!-- Offer Card 2 -->
+    <div class="card offer-card" onclick="showOffer('BDAYFREE')">
+        <h3>Birthday Special</h3>
+        <p>Free Dessert for Birthday Guests</p>
+        <span class="offer-code">BDAYFREE</span>
+    </div>
+    <div class="card offer-card" onclick="showOffer('FEST25')">
+    <h3>Festival Offer</h3>
+    <p>25% OFF During Festival Season</p>
+    <span class="offer-code">FEST25</span>
+</div>
+
+<div class="card offer-card" onclick="showOffer('EARLY20')">
+    <h3>Early Bird Deal</h3>
+    <p>20% OFF for Reservations Before 6 PM</p>
+    <span class="offer-code">EARLY20</span>
+    
+</div>
+</div>
+</section>
+
+<section id="locations">
+<div class="container">
+<h2 class="section-title"> Our Premium Locations</h2>
+
+<div class="grid-3">
+
+<div class="card location-card">
+    <h3>BBQ Nation Kochi</h3>
+    <p> MG Road, Kochi, Kerala</p>
+    <p> +91 98765 43210</p>
+    <p>11:00 AM - 11:00 PM</p>
+    <p class="rating">⭐⭐⭐⭐ 4</p>
+    <a href="https://maps.google.com" target="_blank" class="location-btn">
+        View on Map
+    </a>
+</div>
+
+<div class="card location-card">
+    <h3>BBQ Nation Bangalore</h3>
+    <p> Indiranagar, Bangalore</p>
+    <p> +91 98765 43211</p>
+    <p> 11:00 AM - 11:30 PM</p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.7</p>
+    <a href="https://maps.google.com" target="_blank" class="location-btn">
+        View on Map
+    </a>
+</div>
+
+<div class="card location-card">
+    <h3>BBQ Nation Chennai</h3>
+    <p>Anna Nagar, Chennai</p>
+    <p> +91 98765 43212</p>
+    <p> 11:00 AM - 11:00 PM</p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.9</p>
+    <a href="https://maps.google.com" target="_blank" class="location-btn">
+        View on Map
+    </a>
+</div>
+
+</div>
+</div>
+</section>
+<section id="menu">
+<div class="container">
+<h2 class="section-title">Featured Menu</h2>
+
+<div class="menu-grid">
+
+<div class="menu-item">
+<img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Tandoori Chicken</h3>
+<div class="price">₹299</div>
+<button class="order-btn" onclick="orderFood('Tandoori Chicken')">Order Now</button>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Chicken Wings</h3>
+<div class="price">₹349</div>
+<button class="order-btn" onclick="orderFood('Chicken Wings')">Order Now</button>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Grilled Fish</h3>
+<div class="price">₹399</div>
+<button class="order-btn" onclick="orderFood('Grilled Fish')">Order Now</button>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>BBQ Pizza</h3>
+<div class="price">₹299</div>
+<button class="order-btn" onclick="orderFood('BBQ Pizza')">Order Now</button>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Classic Burger</h3>
+<div class="price">₹199</div>
+<button class="order-btn" onclick="orderFood('Classic Burger')">Order Now</button>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Seekh Kebab</h3>
+<div class="price">₹379</div>
+<button class="order-btn" onclick="orderFood('Seekh Kebab')">Order Now</button>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Prawn BBQ</h3>
+<div class="price">₹549</div>
+<button class="order-btn" onclick="orderFood('Prawn BBQ')">Order Now</button>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80">
+<div class="menu-content">
+<h3>Veg Grill Platter</h3>
+<div class="price">₹329</div>
+<button class="order-btn" onclick="orderFood('Veg Grill Platter')">Order Now</button>
+</div>
+</div>
+
+</section>
+
+<section id="book" class="cta">
+<div class="container">
+<h2>Ready for an Unforgettable BBQ Experience?</h2>
+<p>Reserve your table and enjoy premium dining.</p>
+<br>
+<button class="btn primary" onclick="showBookingForm()">Book Now</button>
+</div>
+</section>
+<section id="booking-form" style="display:none;">
+<div class="booking-container">
+
+<h2>Reserve Your Table</h2>
+<p>Book your perfect dining experience with BBQ Nation.</p>
+
+<form id="bookingForm" onsubmit="submitBooking(event)">
+
+<div class="input-group">
+<label>Full Name</label>
+<input type="text" id="name" required placeholder="Enter your name">
+</div>
+
+<div class="input-group">
+<label>Select Date</label>
+<input type="date" id="date" required>
+</div>
+
+<div class="input-group">
+<label>Select Time</label>
+<input type="time" id="time" required>
+</div>
+
+<div class="input-group">
+<label>Number of Guests</label>
+<input type="number" id="guests" min="1" required placeholder="Guests">
+</div>
+
+<div class="button-group">
+<button type="submit" class="confirm-btn">
+Confirm Booking
+</button>
+
+<button type="button" class="cancel-btn" onclick="cancelBooking()">
+Cancel
+</button>
+</div>
+
+</form>
+
+</div>
+</section>
+<footer id="contact">
+<div class="container">
+
+<div class="footer-grid">
+<div>
+<h3>BBQ Nation</h3>
+<p>Premium BBQ dining experience.</p>
+</div>
+
+<div>
+<h3>Contact</h3>
+<p>krishnaveni8572@gmail.com</p>
+<p>+91 8590411272</p>
+</div>
+
+<div>
+<h3>Opening Hours</h3>
+<p>Monday - Sunday</p>
+<p>11 AM - 11 PM</p>
+</div>
+</div>
+
+<div class="copyright">
+© 2026 BBQ Nation. All Rights Reserved.
+</div>
+
+</div>
+</footer>
+<script>
+function orderFood(item){
+    localStorage.setItem("orderedItem", item);
+    window.location.href = "order.html";
+}
+</script>
+
+
+<div id="notification" class="notification"></div>
+
+</body>
+</html>
